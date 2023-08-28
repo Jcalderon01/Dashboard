@@ -45,7 +45,7 @@ export default function Composicion() {
     <div className="bg-[#415A77] h-screen w-screen flex flex-col items-center justify-start pt-8">
       <div className="bg-[#778DA9] p-20 text-center w-50% h-50%">
         <h1 className="text-center mt-2 text-3xl ">Composición Corporal</h1>
-        <form className="flex flex-col mt-10" onSubmit={handleSubmit}>
+        <form className="flex flex-col mt-10 " onSubmit={handleSubmit}>
           <label className="mt-[-5%] ml-[-50%]">
             Genero:
             <select
@@ -81,7 +81,7 @@ export default function Composicion() {
               }
             />
           </label>
-          <label className="mt-5 ml-[-15%]">
+          <label className="mt-5 ">
             Triceps:
             <input
               type="number"
