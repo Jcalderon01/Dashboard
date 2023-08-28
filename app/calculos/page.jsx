@@ -43,11 +43,11 @@ export default function Composicion() {
 
   return (
     <div className="bg-[#415A77] h-screen w-screen flex flex-col items-center justify-start pt-8">
-      <div className="bg-[#778DA9] p-10 rounded-lg shadow-md text-center">
-        <h1 className="text-center mt-2 text-2xl">Composición Corporal</h1>
+      <div className="bg-[#778DA9] p-20 text-center w-50% h-50%">
+        <h1 className="text-center mt-2 text-3xl ">Composición Corporal</h1>
         <form className="flex flex-col mt-10" onSubmit={handleSubmit}>
           <label className="mt-[-5%] ml-[-50%]">
-            Género:
+            Genero:
             <select
               value={genero}
               onChange={(e) => setGenero(e.target.value)}
@@ -107,7 +107,7 @@ export default function Composicion() {
             />
           </label>
           <label className="mt-5 flex items-center">
-            Cresta ileal:
+            Suprailiaco
             <input
               type="number"
               className="ml-2"
@@ -120,10 +120,7 @@ export default function Composicion() {
               }
             />
           </label>
-          <button
-            type="submit"
-            className="bg-white text-black border-4 cursor-pointer mt-5 py-1 px-3"
-          >
+          <button type="submit" className="bg-white text-black border-4 mt-5  ">
             Calcular
           </button>
         </form>
