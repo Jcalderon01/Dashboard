@@ -38,7 +38,7 @@ export default function Composicion() {
       if (genero === "hombre") {
         MR = (24 * peso) / 100;
       } else if (genero === "mujer") {
-        MR = (24 * peso) / 100;
+        MR = (21 * peso) / 100;
       }
       const masaResidual = MR;
       setResultado4(masaResidual);
@@ -55,8 +55,13 @@ export default function Composicion() {
 
     if (femur && biestiloideo) {
       MS =
-        (Math.pow(Math.pow(altura, 2) * femur * biestiloideo * 400), 0.712) *
-        3.02;
+        Math.pow(
+          Math.pow(altura / 100, 2) *
+            (femur / 100) *
+            (biestiloideo / 100) *
+            400,
+          0.712
+        ) * 3.02;
     }
     const masaosea = MS;
     setResultado3(masaosea);
@@ -195,8 +200,8 @@ export default function Composicion() {
           <div className="mt-5">
             <p>Porcentaje de Grasa Corporal: {resultado.toFixed(2)}%</p>
             <p>Densidad corperal: {resultado2.toFixed(2)}%</p>
-            <p>Masa osea: {resultado3.toFixed(2)}%</p>
-            <p>Masa residual: {resultado4.toFixed(2)}%</p>
+            <p>Masa osea: {resultado3.toFixed(2)}kg</p>
+            <p>Masa residual: {resultado4.toFixed(2)}kg</p>
           </div>
         )}
       </div>
