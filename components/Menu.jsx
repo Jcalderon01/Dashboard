@@ -13,6 +13,10 @@ const menuRoutes = [
     ruta: "/calculos",
     nombre: "Calculos",
   },
+  {
+    ruta: "/tabla",
+    nombre: "Tabla",
+  },
 ];
 
 function Menu() {
