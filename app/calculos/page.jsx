@@ -24,66 +24,6 @@ export default function Composicion() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (genero && tricep && bicep && subescapular && suprailiaco) {
-      const logX1 =
-        Math.log10(
-          parseFloat(tricep) +
-            parseFloat(bicep) +
-            parseFloat(subescapular) +
-            parseFloat(suprailiaco)
-        ) || 0;
-
-      let DC;
-
-      if (genero === "hombre") {
-        DC = 1.1765 - 0.0744 * logX1;
-      } else if (genero === "mujer") {
-        DC = 1.1567 - 0.0717 * logX1;
-      }
-      let MR;
-      if (genero === "hombre") {
-        MR = (24 * peso) / 100;
-      } else if (genero === "mujer") {
-        MR = (21 * peso) / 100;
-      }
-      const masaResidual = MR;
-      setResultado4(masaResidual);
-
-      const porcentajeGrasaCorporal = 495 / DC - 450;
-      const densidad = DC;
-      setResultado(porcentajeGrasaCorporal);
-      setResultado2(densidad);
-    } else {
-      setResultado(null);
-    }
-    let MS;
-    if (femur && biestiloideo) {
-      MS =
-        Math.pow(
-          Math.pow(altura / 100, 2) *
-            (femur / 100) *
-            (biestiloideo / 100) *
-            400,
-          0.712
-        ) * 3.02;
-    }
-    const masaosea = MS;
-    setResultado3(masaosea);
-
-    let MG = (peso * resultado) / 100;
-    setMasaGrasa(MG);
-
-    let PO = (resultado3 * 100) / peso;
-    setPorcentajeOseo(PO);
-
-    let PR = (resultado4 * 100) / peso;
-    setPorcentajeResidual(PR);
-
-    let PM = 100 - (resultado + porcentajeOseo + porcentajeResidual);
-    setPorcentajeMusculo(PM);
-
-    let MM = (peso / 100) * porcentajeMusculo;
-    setMasaMuscular(MM);
   };
 
   const handlePositiveInputChange = (value, setValue) => {
@@ -233,22 +173,83 @@ export default function Composicion() {
               />
             </label>
           </div>
-          <button
+          <input
             type="submit"
             className="col-span-2 bg-white text-black border-4 mt-5"
-          >
-            Calcular
-          </button>
+            value="Calcular"
+            onClick={() => {
+              if (
+                genero &&
+                tricep &&
+                bicep &&
+                subescapular &&
+                suprailiaco &&
+                femur &&
+                biestiloideo
+              ) {
+                const logX1 =
+                  Math.log10(
+                    parseFloat(tricep) +
+                      parseFloat(bicep) +
+                      parseFloat(subescapular) +
+                      parseFloat(suprailiaco)
+                  ) || 0;
+
+                let DC;
+
+                if (genero === "hombre") {
+                  DC = 1.1765 - 0.0744 * logX1;
+                } else if (genero === "mujer") {
+                  DC = 1.1567 - 0.0717 * logX1;
+                }
+                let MR;
+                if (genero === "hombre") {
+                  MR = (24 * peso) / 100;
+                } else if (genero === "mujer") {
+                  MR = (21 * peso) / 100;
+                }
+                const masaResidual = MR;
+                setResultado4(masaResidual);
+
+                let PR = (masaResidual * 100) / peso;
+                setPorcentajeResidual(PR);
+
+                const porcentajeGrasaCorporal = 495 / DC - 450;
+                const densidad = DC;
+                setResultado(porcentajeGrasaCorporal);
+                setResultado2(densidad);
+                let MG = (peso * porcentajeGrasaCorporal) / 100;
+                setMasaGrasa(MG);
+                let MS;
+                MS =
+                  Math.pow(
+                    Math.pow(altura / 100, 2) *
+                      (femur / 100) *
+                      (biestiloideo / 100) *
+                      400,
+                    0.712
+                  ) * 3.02;
+
+                const masaosea = MS;
+                setResultado3(masaosea);
+
+                let PO = (masaosea * 100) / peso;
+                setPorcentajeOseo(PO);
+
+                let PM = 100 - (porcentajeGrasaCorporal + PO + PR);
+                setPorcentajeMusculo(PM);
+
+                let MM = (peso / 100) * PM;
+                setMasaMuscular(MM);
+              } else {
+                setResultado(null);
+              }
+            }}
+          ></input>
         </form>
         {resultado !== null && (
           <div className="mt-5">
             <p>Densidad corperal: {resultado2.toFixed(2)}%</p>
-
-            {/*
-            <p>Porcentaje de Grasa Corporal: {resultado.toFixed(2)}%</p>
-            <p>Masa osea: {resultado3.toFixed(2)}kg</p>
-            <p>Masa residual: {resultado4.toFixed(2)}kg</p>
-        */}
           </div>
         )}
       </div>
