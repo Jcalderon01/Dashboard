@@ -70,13 +70,13 @@ export default function Composicion() {
     const masaosea = MS;
     setResultado3(masaosea);
 
-    let MG = (peso / 100) * resultado;
+    let MG = (peso * resultado) / 100;
     setMasaGrasa(MG);
 
-    let PO = (peso / 100) * resultado3;
+    let PO = (resultado3 * 100) / peso;
     setPorcentajeOseo(PO);
 
-    let PR = (peso / 100) * resultado4;
+    let PR = (resultado4 * 100) / peso;
     setPorcentajeResidual(PR);
 
     let PM = 100 - (resultado + porcentajeOseo + porcentajeResidual);
@@ -242,9 +242,10 @@ export default function Composicion() {
         </form>
         {resultado !== null && (
           <div className="mt-5">
-            <p>Porcentaje de Grasa Corporal: {resultado.toFixed(2)}%</p>
-            {/*
             <p>Densidad corperal: {resultado2.toFixed(2)}%</p>
+
+            {/*
+            <p>Porcentaje de Grasa Corporal: {resultado.toFixed(2)}%</p>
             <p>Masa osea: {resultado3.toFixed(2)}kg</p>
             <p>Masa residual: {resultado4.toFixed(2)}kg</p>
         */}
