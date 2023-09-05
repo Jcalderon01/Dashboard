@@ -8,10 +8,10 @@ export const Graph = ({ valores }) => {
     const grafica = new Chart(ctx1, {
       type: "pie",
       data: {
-        labels: ["masa grasa", "osea", "residual", "muscular"],
+        labels: ["Grasa", "Osea", "Residual", "Muscular"],
         datasets: [
           {
-            label: "Numero",
+            label: "Porcentajes",
             data: [...valores],
             borderWidth: 1,
             backgroundColor: ["red", "blue", "yellow", "green"],

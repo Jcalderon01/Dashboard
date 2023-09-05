@@ -255,7 +255,7 @@ export default function Composicion() {
         )}
       </div>
       {/*  */}
-      <div className="bg-[#778DA9] p-5 h-1/2">
+      <div className="bg-[#778DA9] p-5 h-full">
         <h1 className="text-center text-white text-3xl mb-4">Tabla</h1>
         <div className="border border-gray-300 rounded-md overflow-hidden">
           <Tabla
@@ -269,6 +269,7 @@ export default function Composicion() {
             porcentajeResidual={porcentajeResidual}
           />
           <Graph
+            className={"h-1/2"}
             valores={[
               resultado,
               porcentajeOseo,

@@ -25,7 +25,7 @@ function Menu() {
       <h1>Menu</h1>
       <ol>
         {menuRoutes.map((menu, key) => (
-          <li key={key}>
+          <li key={key} className="text-white">
             <Link href={menu.ruta}>{menu.nombre}</Link>
           </li>
         ))}
