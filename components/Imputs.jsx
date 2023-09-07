@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Imputs = ({ name }) => {
+export const Imputs = ({ text, name, value }) => {
   return (
     <div>
       {" "}

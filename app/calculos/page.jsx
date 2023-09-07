@@ -34,7 +34,7 @@ export default function Composicion() {
   };
 
   return (
-    <div className="bg-[#415A77] h-screen w-screen grid grid-cols-2 gap-8 p-8">
+    <div className="bg-[#415A77] h-full w-screen grid grid-cols-2 gap-8 p-8">
       {/* Form Column */}
       <div className="bg-[#778DA9] p-8">
         <h1 className="text-center text-3xl mb-6">Composición Corporal</h1>

@@ -17,7 +17,7 @@ const menuRoutes = [
 
 function Menu() {
   return (
-    <div className="bg-[#1B263B] w-[15%] text-white h-screen text-xl px-2">
+    <div className="bg-[#1B263B] w-[15%] text-white h-auto text-xl px-2">
       <h1 className="text-3xl pt-2 ">Menu</h1>
       <ol>
         {menuRoutes.map((menu, key) => (
