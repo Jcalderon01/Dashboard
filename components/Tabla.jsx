@@ -11,7 +11,7 @@ export const Tabla = ({
   porcentajeResidual,
 }) => {
   return (
-    <div>
+    <div className="">
       {" "}
       <table className="w-full">
         <thead>

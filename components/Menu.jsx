@@ -13,20 +13,18 @@ const menuRoutes = [
     ruta: "/calculos",
     nombre: "Calculos",
   },
-  {
-    ruta: "/tabla",
-    nombre: "Tabla",
-  },
 ];
 
 function Menu() {
   return (
-    <div className="bg-[#1B263B] w-[15%] text-white h-screen">
-      <h1>Menu</h1>
+    <div className="bg-[#1B263B] w-[15%] text-white h-screen text-xl px-2">
+      <h1 className="text-3xl pt-2 ">Menu</h1>
       <ol>
         {menuRoutes.map((menu, key) => (
-          <li key={key} className="text-white">
-            <Link href={menu.ruta}>{menu.nombre}</Link>
+          <li key={key} className="pt-4">
+            <Link className="" href={menu.ruta}>
+              {menu.nombre}
+            </Link>
           </li>
         ))}
       </ol>

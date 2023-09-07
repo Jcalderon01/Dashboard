@@ -14,7 +14,7 @@ export const Graph = ({ valores }) => {
             label: "Porcentajes",
             data: [...valores],
             borderWidth: 1,
-            backgroundColor: ["red", "blue", "yellow", "green"],
+            backgroundColor: ["#1B263B", "#3f6ea5", "#6b7894", "#415A77"],
           },
         ],
       },
