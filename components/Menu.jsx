@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+/*Clase menu donde estan todas las demas rutas */
 const menuRoutes = [
   {
     ruta: "/",

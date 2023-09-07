@@ -33,6 +33,7 @@ export default function Composicion() {
     }
   };
 
+  /* Diseño del formulario*/
   return (
     <div className="bg-[#415A77] h-full w-screen grid grid-cols-2 gap-8 p-8">
       {/* Form Column */}
@@ -188,6 +189,7 @@ export default function Composicion() {
                 femur &&
                 biestiloideo
               ) {
+                /* Calculo de densidad corporal */
                 const logX1 =
                   Math.log10(
                     parseFloat(tricep) +
@@ -203,6 +205,7 @@ export default function Composicion() {
                 } else if (genero === "mujer") {
                   DC = 1.1567 - 0.0717 * logX1;
                 }
+                /*Calculo de masa residual */
                 let MR;
                 if (genero === "hombre") {
                   MR = (24 * peso) / 100;
@@ -212,15 +215,18 @@ export default function Composicion() {
                 const masaResidual = MR;
                 setResultado4(masaResidual);
 
+                /*Conversion de kg a % */
                 let PR = (masaResidual * 100) / peso;
                 setPorcentajeResidual(PR);
 
+                /*Calculo de grasa corporal */
                 const porcentajeGrasaCorporal = 495 / DC - 450;
                 const densidad = DC;
                 setResultado(porcentajeGrasaCorporal);
                 setResultado2(densidad);
                 let MG = (peso * porcentajeGrasaCorporal) / 100;
                 setMasaGrasa(MG);
+                /*Calculo de masa osea  */
                 let MS;
                 MS =
                   Math.pow(
@@ -237,6 +243,7 @@ export default function Composicion() {
                 let PO = (masaosea * 100) / peso;
                 setPorcentajeOseo(PO);
 
+                /* Calculo de porcenta de grasa corporal*/
                 let PM = 100 - (porcentajeGrasaCorporal + PO + PR);
                 setPorcentajeMusculo(PM);
 
@@ -258,6 +265,7 @@ export default function Composicion() {
       <div className="bg-[#778DA9] p-5 h-full">
         <h1 className="text-center text-white text-3xl mb-4">Tabla</h1>
         <div className="border border-gray-300 rounded-md overflow-hidden">
+          {/*Modulo de tabla */}
           <Tabla
             resultado={resultado}
             masaGrasa={masaGrasa}
@@ -268,6 +276,7 @@ export default function Composicion() {
             masaMuscular={masaMuscular}
             porcentajeResidual={porcentajeResidual}
           />
+          {/*Modulo de grafica */}
           <Graph
             className={"h-1/2"}
             valores={[

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Chart } from "chart.js";
 
+/*Clase de grafica que usa los valores del formulario y los despliega en forma de grafica */
 export const Graph = ({ valores }) => {
   useEffect(() => {
     const ctx1 = document.getElementById("myChart1").getContext("2d");

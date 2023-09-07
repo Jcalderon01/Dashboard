@@ -1,5 +1,6 @@
 import React from "react";
 
+/*Clase de tabla que maneja los datos del formulario y los despliega en forma de tabla */
 export const Tabla = ({
   resultado,
   masaGrasa,
